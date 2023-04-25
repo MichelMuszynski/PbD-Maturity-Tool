@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Admin Panel</li>
+        </ol>
+        <h2>Admin Panel</h2>
+      </div>
+    </section>
+
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Test ======= -->
+    <section class="inner-page">
+      <div class="container">
+        <div>
+
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill" style="margin-right: 10px"></i>
+                <div>
+                    Updating overwrites existing tables with empty tables, you will lose the data permanently! Do not do use this page unless you know what you are doing!
+                </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update maturity model in database from PbD-FAMM.csv in the file system.</span>
+                <form method="post">
+                    <input type="submit" name="updatemm" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update assessment questions in database from assessmentquestions.csv in the file system (Long version: 186 questions).</span>
+                <form method="post">
+                    <input type="submit" name="updateaq" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update assessment questions in database from assessmentquestions_short.csv in the file system (Short version: 60 capabilities).</span>
+                <form method="post">
+                    <input type="submit" name="updateaqs" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update capability descriptions in database from surveyquestions.csv in the file system.</span>
+                <form method="post">
+                    <input type="submit" name="updatecd" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update evaluation questions in database from evaluationquestions.csv in the file system.</span>
+                <form method="post">
+                    <input type="submit" name="updateeq" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update improvement actions in database from improvementactions.csv in the file system.</span>
+                <form method="post">
+                    <input type="submit" name="updateia" value="Update" />
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <span>Update startconditions in database from startconditions.csv in the file system.</span>
+                <form method="post">
+                    <input type="submit" name="updatesc" value="Update" />
+                </form>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- End Test -->
+
+  <!-- End #main -->
+
+{% endblock %}

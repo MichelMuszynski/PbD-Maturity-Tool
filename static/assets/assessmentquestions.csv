@@ -1,0 +1,187 @@
+﻿ID;Focus area;Capability;Level;Question
+1;1;A;1;Are the privacy requirements formulated based on general privacy principles and the PIA?
+2;1;A;1;Are the privacy requirements formulated before the design stage?
+3;1;A;1;Are business and legal requirements elicited with privacy in mind?
+4;1;A;1;Are privacy violating business requirements discarded?
+5;1;B;3;Are all privacy and security requirements collected?
+6;1;B;3;Are all collected privacy and security requirements validated for technical soundness and implementation viability?
+7;1;B;3;Is adherence of the system to the requirements verified during validation?
+8;1;B;3;Is adherence of the system to the requirements verified through pre-formulated requirement constraints and test?
+9;1;C;4;Are stakeholders extensively involved in the formulation of privacy goals?
+10;1;C;4;Are stakeholders extensively involved in the identification of privacy requirements?
+11;1;C;4;Are elicited privacy requirements related to specific threats or principles?
+12;1;C;4;Are the privacy requirements tracked by the privacy office?
+13;1;C;4;Are privacy risks considered for all processes and systems in the design phase?
+14;1;D;5;Is advice from ethical experts gained regarding requirements for sensitive personal data?
+15;2;A;2;Does the project architecture for new initiatives contain a privacy architecture viewpoint?
+16;2;A;2;Does the privacy architecture map privacy requirements onto the project requirements?
+17;2;A;2;Does the privacy architecture translate privacy design strategies to tactics?
+18;2;A;2;Does the privacy architecture model data sets, processing purposes, lawful grounds, actors, legal roles, and personal data types?
+19;2;B;3;Does the enterprise architecture contain data flow diagrams that model all processing activities?
+20;2;B;3;Does the privacy architecture contain viewpoints that document the relationship between existing and new elements?
+21;2;C;4;Are the architecture models verified for completeness and soundness?
+22;2;C;4;Are the architecture and models validated to confirm that privacy requirements are implemented correctly?
+23;2;C;4;Are selected privacy tactics integrated by means of available privacy design patterns and PETs?
+24;2;D;7;Are processing activities and related information elements exhaustively modelled and traceable through all layers of architecture?
+25;2;D;7;Are privacy design patterns and PETs selected in a structured manner?
+26;2;D;7;Are privacy design patterns and PETs selected from a centralised catalogue?
+27;3;A;1;Are the privacy requirements incorporated in low-level design?
+28;3;A;1;Is acceptance testing used to ensure that the system meets the privacy and security requirements?
+29;3;B;2;Are the privacy and data protection activities integrated in the methods and workflows of the software development lifecycle?
+30;3;B;2;Is operational behaviour checked against applicable privacy policies and procedures?
+31;3;C;5;Is privacy-by-design applied and documented within change management procedures?
+32;3;C;5;Is a process in place to ensure that updates to privacy notices are considered for every significant change in the organisation's processing activities?
+33;3;D;6;Has a catalogue of privacy patterns been established?
+34;3;D;6;Does the catalogue of privacy patterns contain relevant code excerpts?
+35;3;D;6;Are information systems designed with automated privacy controls where possible?
+36;3;E;9;Are privacy policies embedded is the system design?
+37;3;E;9;Are the privacy policies automatically enforced?
+38;4;A;1;Is purpose-based access used to limit access to personal data?
+39;4;A;1;Is personal data encrypted in transit?
+40;4;B;5;Are privacy enhancing technologies (PETs) selected, developed, and used to implement privacy design patterns?
+41;4;C;7;Are the selected privacy enhancing technologies assessed for effectiveness and added value to the provided degree of privacy?
+42;4;C;7;Are unnecessary privacy enhancing technologies removed?
+43;4;C;7;Are new and existing privacy enhancing technologies catalogued?
+44;4;D;8;Is the enforcement of privacy policies embedded in the technical design where suitable?
+45;4;D;8;Are privacy design patterns mapped to privacy enhancing technologies?
+46;4;D;8;Are used privacy enhancing technologies selected from an established catalogue?
+47;4;D;8;Are the quantitative and qualitative costs and benefits of privacy enhancing technologies taken into account?
+48;4;D;8;Is the privacy protection technology continuously monitored, optimised, and upgraded?
+49;4;E;10;Is revocable privacy implemented through privacy-by-architecture and privacy enhancing technologies?
+50;5;A;2;Is the PIA performed in a methodical manner?
+51;5;A;2;Is the PIA performed for new projects?
+52;5;A;2;Is the PIA updated whenever there are relevant changes in the project?
+53;5;A;2;Does the PIA consider and legal requirements?
+54;5;A;2;Does the PIA consider and technical security requirements?
+55;5;A;2;Does the PIA consider and privacy requirements?
+56;5;A;2;Does the PIA document how all requirements are implemented?
+57;5;B;3;Is a preliminary threshold analysis performed to determine whether a PIA is necessary?
+58;5;B;3;Is a preliminary threshold analysis performed for new initiatives and existing project modifications?
+59;5;B;3;Does the PIA process start in the early project planning phase?
+60;5;B;3;Does the PIA process last throughout the project's life?
+61;5;C;4;Are the scope and scale of the PIA determined and documented?
+62;5;C;4;Are the PIA roles assigned and documented?
+63;5;C;4;Are the PIA responsibilities assigned and documented?
+64;5;C;4;Is the PIA approval process assigned and documented?
+65;5;C;4;Are the needed PIA resources assigned and documented?
+66;5;C;4;Is a privacy control selection process implemented to evaluate the proportionality of selected measures?
+67;5;D;5;Are the PIA process and PIA reporting activities decoupled?
+68;5;D;5;Do PIAs reference PIA reports from the centralised registry?
+69;5;D;5;Are privacy controls methodically assessed using metrics?
+70;5;D;5;Is the design of the physical environment included?
+71;5;E;6;Are stakeholders involved in identifying and evaluating privacy risks?
+72;5;E;6;Is a formalised stakeholder consultation plan created?
+73;5;E;6;Are privacy risks continuously identified during the project and processing activity lifecycles?
+74;5;E;6;Is a senior executive held accountable for the quality and adequacy of the PIA.
+75;5;F;8;Does the PIA cover all privacy issues (as opposed to only information privacy)?
+76;5;F;8;Does the PIA include an assessment positive and negative privacy impacts?
+77;5;F;8;Is privacy-by-design stimulated through the formulation of privacy targets in system design?
+78;5;F;8;Are existing PIAs and the overall PIA process constantly reviewed as part of a continuous improvement effort?
+79;6;A;3;Is the PIA report reviewed?
+80;6;A;3;Is the PIA report tied to budget submissions for new projects?
+81;6;B;4;Are PIA reports stored in a centralised registry?
+82;6;B;4;Is the centralised PIA registry available as a body of knowledge for consultation?
+83;6;B;4;Is a mechanism is in place for updating and publishing PIA reports whenever significant changes are made to processing activities?
+84;6;C;6;Does reporting adhere to its own periodic reporting cycle independent of the PIA process?
+85;6;C;6;Are PIA reports submitted for audit to an independent third-party?
+86;6;D;7;Is there support for multiple PIA reports per PIA process?
+87;6;D;7;Are PIA reports adapted to their intended audience in both content and form?
+88;7;A;3;Is privacy-by-design part of a formally defined risk management approach?
+89;7;A;3;Is the privacy impact assessment part of a formally defined risk management approach?
+90;7;A;3;Is a privacy risk analysis framework employed?
+91;7;A;3;Does the privacy risk analysis framework include privacy risk modelling, risk prioritisation, and mitigational measures formulation?
+92;7;A;3;Are residual risks identified and documented?
+93;7;B;4;Are privacy risks kept in an inventory?
+94;7;B;4;Are privacy risks linked to specific vulnerabilities or failures?
+95;7;B;4;Are privacy risks mapped to data-flow elements?
+96;7;B;4;Do data controllers have a complete overview of documented privacy risks?
+97;7;B;4;Do data controllers produce a control implementation plan?
+98;7;B;4;Does the control implementation plan describe risk mitigation and control feasibility through a cost-benefit analysis?
+99;7;B;4;Are feared events identified?
+100;7;B;4;Is the impact and severity of feared events determined?
+101;7;C;5;Are there implemented and documented policies and procedures to monitor and optimise privacy risk management and control?
+102;7;C;5;Are the formulated policies improved by feeding back audit results into a change control process?
+103;7;C;5;Is the data lifecycle adopted as a basis for the contextual analysis to anticipate privacy invasive events?
+104;7;C;5;Is the data lifecycle adopted as a basis for the contextual analysis to identify system harmful activities and risks?
+105;7;D;7;Are predictive analytics employed to automatically identify data risks?
+106;7;D;7;Are predictive analytics employed to provide early warnings for high-risk operations?
+107;7;D;7;Is continuous risk assessment supported by a privacy risk & compliance dashboard?
+108;8;A;1;Is a set of standard processing principles applied (e.g., GDPR processing principles)?
+109;8;B;2;Are the processing principles documented?
+110;8;B;2;Are the processing principles applied in a structured and methodical manner?
+111;8;B;2;Are the processing principles periodically evaluated?
+112;8;C;5;Does data past the retention period automatically flagged or deleted when no legal hold had been specified?
+113;8;C;5;Is purpose limitation supported by role concepts with graduated access rights?
+114;8;C;5;Does the data protection officer have a dashboard with an up-to-date view of the lawfulness of personal data processing activities?
+115;8;D;7;Is compliance with the processing principles proactively managed to deliver process optimisation?
+116;8;D;7;Are issues of non-compliance identified?
+117;8;D;7;Is remedial action take to ensure compliance in a timely fashion?
+118;8;D;7;Is the deletion of data that would violate legal retention requirements prevented through automated controls?
+119;9;A;1;Are requests related to the exercise of data subject rights recorded?
+120;9;A;1;Are requests related to the exercise of data subject rights monitored?
+121;9;A;1;Are requests related to the exercise of data subject rights reported?
+122;9;A;1;Is consent management defined and implemented, including related notices, policies, and procedures?
+123;9;B;6;Are data subject rights facilitated through automated technical mechanisms?
+124;9;B;6;Are consent processes periodically reviewed and improved where necessary?
+125;9;B;6;Is consent tested prior to use of personal information through automated processes?
+126;9;C;7;Are policies and procedures related to subject rights facilitation regularly reviewed?
+127;9;C;7;Does the data protection officer have a dashboard that provides an up-to-date view of data access requests and responses?
+128;9;D;9;Is user-driven control of personal data employed?
+129;9;D;9;Are data subjects that do not consent to provide personal data offered equitable conditions?
+130;9;D;9;Are consent items automatically updated in all affected processing systems whenever a change occurs?
+131;10;A;1;Are privacy policies publicly available?
+132;10;A;1;Are privacy policies written in clear and comprehensible language?
+133;10;A;1;Do privacy policies contain contact information of the individuals responsible for privacy and security?
+134;10;A;1;Are privacy policy revision meetings conducted?
+135;10;A;1;Is feedback on the readability and content of the privacy policy analysed and incorporated?
+136;10;A;1;Are historical versions of privacy policies archived and accessible?
+137;10;B;2;Are policy communications routine?
+138;10;B;2;Are policy communications semi-automated?
+139;10;B;2;Is the general understanding of the privacy policy of individuals assessed and used to improve communication methods?
+140;10;B;2;Are procedures implemented that uniformly and consistently obtain consent for additional processing activities in the collection phase?
+141;10;C;5;Are privacy policies defined together with data subjects?
+142;10;C;5;Are data subjects provided information about policies, procedures, and controls?
+143;10;C;5;Are data subjects provided information through tools that allow them to determine how personal data is used?
+144;10;C;5;Are data subjects provided information through tools that allow them to determine whether policies are being properly enforced?
+145;10;D;7;Are summaries of PIAs published?
+146;10;D;7;Are summaries of threat and risk assessments published?
+147;10;D;7;Are the results of independent third-party audit results published?
+148;11;A;2;Is a privacy risk assessment for third parties completed before any contract is granted where personal data is made available?
+149;11;A;2;Are existing contracts with third parties that involve providing personal data reviewed?
+150;11;B;4;Are there documented procedures to ensure that third parties have appropriate safeguards in place prior to transferring personal data?
+151;11;B;4;Are the documented procedures for ensuring third parties have appropriate safeguards consistently applied?
+152;11;B;4;Are new instances of personal data sharing with third parties assessed to determine authorisation, additional notice, and updates to existing agreements?
+153;11;B;4;Are exception reports used to record inappropriate, unacceptable, or misuse activities by third parties?
+154;11;B;4;Are exception reports used to monitor the status of remedial activities?
+155;11;C;6;Is a privacy level agreement made as part of a service level agreement with third parties?
+156;11;C;6;Are changes in a third party environment monitored to ensure the processor can continue to meet its obligations?
+157;11;C;6;Is compliance with privacy policies relating to disclosure to third parties monitored by management?
+158;12;A;1;Are stakeholders, roles, and responsibilities related to privacy activities identified and assigned?
+159;12;B;2;Is the management of privacy-related roles and responsibilities formalised in a role/functionality matrix?
+160;12;B;2;Is a chief privacy officer appointed?
+161;12;C;3;Is the trust relationship between the stakeholders defined?
+162;12;C;3;Are the data processing responsibilities assigned to the appropriate stakeholders including monitoring activities?
+163;12;C;3;Is a technical privacy officer assigned to support operational privacy-by-design activities?
+164;12;D;5;Is a central entity responsible for privacy related issues appointed (e.g., a privacy committee)?
+165;13;A;1;Is the organisation aware of the basic principles of privacy-by-design?
+166;13;A;1;Is management committed to applying the basic principles of privacy-by-design?
+167;13;B;2;Are target groups involved with privacy-by-design identified?
+168;13;B;2;Are target groups involved with privacy-by-design given training for raising awareness and transmitting knowledge relevant to their specialisation?
+169;13;C;3;Are resources provided to support consistent implementation of privacy policies, procedures, and standards (e.g., manuals, guides, handbooks)?
+170;13;D;5;Does the organisation participate in learning from and contributing to the available body of knowledge amassed by the privacy community?
+171;13;D;5;Are staff and management comfortable identifying areas for improving privacy practices and discussing these freely and proactively?
+172;14;A;4;Is an assurance process in place to support the checking and demonstration of compliance with regulation?
+173;14;A;4;Does the assurance process include overseeing the execution of cybersecurity and privacy controls?
+174;14;A;4;Do systems have functional audit logs and usage reports?
+175;14;A;4;Do the functional audit logs and usage reports provide information without disclosing identity information?
+176;14;B;5;Are events logged during all processing activities?
+177;14;B;5;Are privacy-related key performance indicators used to periodically track, measure, and monitor the performance of the privacy function?
+178;14;B;5;Is performance regularly reported to management?
+179;14;B;5;Are performance metrics regularly reviewed?
+180;14;C;6;Does management continuously monitor compliance with privacy policies, regulations, and procedures related to personal data processing?
+181;14;C;6;Is the approach to privacy-by-design continually reviewed based on internal review?
+182;14;C;6;Is the approach to privacy-by-design continually reviewed based on external developments in best practice?
+183;14;D;7;Are periodic reviews and audits performed on processing activities to ensure personal information uses are appropriate and lawful?
+184;14;E;8;Are systematic and independent audit examinations of logs, procedures, processes, and hardware and software specifications performed?
+185;14;E;8;Are audit and log systems compliant with other privacy principles?
+186;14;E;8;Do audit and log systems track user activity to identify illegal processing?

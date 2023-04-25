@@ -1,0 +1,15 @@
+﻿ID;Focus area;Description
+1;1;Privacy requirements are not explicitly formulated.
+2;2;Privacy is not explicitly considered in the software architecture.
+3;3;Privacy is not explicitly addressed during development.
+4;4;Privacy enhancing technologies are not explicitly implemented.
+5;5;A PIA is a one-time process and product.
+6;6;The PIA report is tightly coupled with the PIA process. There is one report for all audiences.
+7;7;Privacy is not integrated into the organisations risk management programme.
+8;8;Data processing principles are not actively applied.
+9;9;Data subject rights are not actively facilitated through design.
+10;10;A privacy notice exists on a public website and data subjects are referred to it.
+11;11;Data processing agreements are established on an individual basis.
+12;12;Privacy-related roles are not formally defined for the entirety of the privacy-by-design process.
+13;13;Privacy awareness is not actively stimulated.
+14;14;Privacy-related activities are not structurally monitored or validated.

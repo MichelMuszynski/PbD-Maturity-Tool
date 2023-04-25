@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Test</li>
+        </ol>
+        <h2>Test</h2>
+
+      </div>
+    </section>
+
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Test ======= -->
+    <section class="inner-page">
+      <div class="container">
+        <div>
+          <p>Test</p>
+        </div>
+          <span>TEST</span>
+          <span>{{vars}}</span>
+        <div>
+      </div>
+    </section>
+  </main>
+  <!-- End Test -->
+
+  <!-- End #main -->
+
+{% endblock %}

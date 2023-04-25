@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <!--<link rel="canonical" href="https://www.privacymaturity.org/"/>-->
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Assessment results</li>
+        </ol>
+        <h2>Results</h2>
+
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Evaluation sticky ======= -->
+    {% if evaluation == 'True' %}
+        <div style="position: sticky; top: 60px; z-index: 1020">
+            <div class="alert alert-warning" role="alert" style="padding: 7px">
+                <div style="display: flex; align-items: center; justify-content: center">
+                    <span style="font-size: 14pt">Help us to improve the model!&nbsp;&nbsp;Perform the evaluation:</span>
+                    <a href="#evaluationCard"><button type="button" id="evalButton" class="btn btn-sm btn-primary" style="margin-left: 20px">More info</button></a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!-- End evaluation sticky -->
+
+    <!-- ======= Results ======= -->
+    <section class="inner-page" style="padding-top: 30px">
+      <div class="container inner-page-width">
+        <div class="inner-page" style="margin-bottom: 2%">
+            <H2>Maturity assessment results</H2>
+        </div>
+
+        <div style="margin-bottom: 4%">
+            <p>This report shows the maturity results based on the provided answers during the assessment.
+            The coloured cells in the table below denote the maturity level per focus area.
+            The last column that is entirely coloured will be the overall maturity level.
+            Cells that are partially coloured indicate capabilities that are partially developed.
+            The improvement actions tell you what must be done to reach the next maturity level.
+            </p>
+        </div>
+
+        <!-- ====== Model with results ====== -->
+        <div class="table-responsive" data-aos="fade-up" style="margin-bottom: 0px; overflow-x: auto">
+            <table class="table table-bordered text-nowrap" style="border:1px solid black">
+                <tbody>
+                    <!-- Table head -->
+                    <tr>
+                        <td colspan="2" style="border:1px solid black">
+                            <!-- empty -->
+                        </td>
+                        <td colspan="100%" style="border:1px solid black">
+                            <div style="text-align: center; font-weight:bold">Maturity level</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="border:1px solid black">
+                            <div style="text-align: center; font-weight:bold">#</div>
+                        </td>
+
+                        <td style="border:1px solid black">
+                            <div style="font-weight:bold">Focus area</div>
+                        </td>
+
+                        {% for focusarea in mm[0][1:] %}
+                          <td style="vertical-align: center; text-align: center; width: 5%; border: 1px solid black">{{loop.index0}}</td>
+                        {% endfor %}
+                    </tr>
+                    <!-- End table head -->
+                    <!--
+
+                    ColoringlevelFull: {{results.focusAreas[0].coloringLevelFull}}
+                    ColoringlevelPartial: {{results.focusAreas[0].coloringLevelPartial}}
+                    <br/>
+                    developedFull0: {{results.focusAreas[0].capabilities[0].developedFull}}
+                    developedPartial0: {{results.focusAreas[0].capabilities[0].developedPartial}}
+                    <br/>
+                    developedFull1: {{results.focusAreas[0].capabilities[1].developedFull}}
+                    developedPartial1: {{results.focusAreas[0].capabilities[1].developedPartial}}
+                    -->
+                    <!-- Table body -->
+                    {% for focusarea in mm %}
+                    {% set focusarealoop = loop %}
+                    {% set capabilityindex = namespace(value=0) %}
+                    <tr>
+                        <!-- # -->
+                        <td style="vertical-align: center; text-align: center; width: 5%; border: 1px solid black">
+                            {{loop.index}}
+                        </td>
+                        <!-- End # -->
+
+                        <!-- Focus area -->
+                        <td style="border:1px solid black">
+                            {{focusarea[0]}}
+                        </td>
+                        <!-- End focus area -->
+
+                        <!-- Capabilities -->
+                        {% for capability in focusarea[1:] %}
+                            {% if loop.index0 == 0 %}
+                                <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} zero" data-bs-content="{{sc[focusarealoop.index0]}}" style="background-color: #BFE5FF; vertical-align: center; text-align: center; border: 1px solid black">
+                                    <i class="bi bi-record-circle" style="font-size: 12px"></i>
+                                </td>
+                            {% else %}
+                                {% if capability == '' %}
+                                    {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                        <td style="background-color: #BFE5FF; border:1px solid black">
+                                            {{capability}}
+                                        </td>
+                                    {% elif (loop.index0 > results.focusAreas[focusarealoop.index0].coloringLevelFull) and (loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelPartial) %}
+                                        <td style="background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); border:1px solid black">
+                                            {{capability}}
+                                        </td>
+                                    {% else %}
+                                        <td style="border:1px solid black">
+                                            {{capability}}
+                                        </td>
+                                    {% endif %}
+
+                                {% else %}
+                                    {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                        <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; background-color: #BFE5FF; border:1px solid black">
+                                            {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                            {{capability}}
+                                        </td>
+                                    {% elif (loop.index0 > results.focusAreas[focusarealoop.index0].coloringLevelFull) and (loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelPartial) %}
+                                        <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); border:1px solid black">
+                                            {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                            {{capability}}
+                                        </td>
+                                    {% else %}
+                                        <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; border:1px solid black">
+                                            {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                            {{capability}}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <!-- End capabilities -->
+                    </tr>
+                    {% endfor %}
+                    <!-- End table body -->
+                </tbody>
+            </table>
+
+            <!-- Table legend  -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div style="padding-left: 10px">
+                            <i class="bi bi-info-circle" style="color: blue"></i> <i style="margin-left: 5px; font-size: 11pt">Hover over the icons and letters for a full description.</i>
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div style="height: 24px; width: 24px; background-color: #BFE5FF; margin-right: 10px"></div>
+                        <div>
+                            Fully developed
+                        </div>
+                    </div>
+                    <div class="col d-flex">
+                        <div style="height: 24px; width: 24px; background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); margin-right: 10px"></div>
+                        <div>
+                            Partially developed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ====== End model with results ====== -->
+
+
+        <!-- ====== Focus area highlights ====== -->
+        <div id="counts" class="counts">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4 justify-content-md-center">
+
+                    <div class="col-lg-4 col-md-7">
+                        <p style="text-align: center; color: #012970; font-family: Nunito, sans-serif; font-size: 16pt">Overall maturity</p>
+                        <div class="count-box">
+                            <i class="bi bi-bar-chart-fill" style="color: blue"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{results.maturityLevel}}" data-purecounter-duration="2" class="purecounter"></span>
+                                <p>Privacy-by-design</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7">
+                        <p style="text-align: center; color: #012970; font-family: Nunito, sans-serif; font-size: 16pt">Lowest focus area</p>
+                        <div class="count-box">
+                            <i class="bi bi-sort-down" style="color: red"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{results.lowestFA.coloringLevelFull}}" data-purecounter-duration="2" class="purecounter"></span>
+                                <p>{{results.lowestFA.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7">
+                        <p style="text-align: center; color: #012970; font-family: Nunito, sans-serif; font-size: 16pt">Highest focus area</p>
+                        <div class="count-box">
+                            <i class="bi bi-sort-up" style="color: green"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{results.highestFA.coloringLevelFull}}" data-purecounter-duration="2" class="purecounter"></span>
+
+                                <p>{{results.highestFA.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- ====== End focus area highlights ====== -->
+
+
+        <!-- ====== Assessment answers ====== -->
+        <div style="margin-bottom: 10%">
+            <div class="accordion" id="accordionResult">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AccResultsOne" aria-expanded="false">
+                    <div style="font-weight:bold">Assessment answers</div>
+                  </button>
+                </h2>
+                <div id="AccResultsOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                  <div class="accordion-body">
+                      {% set levels = range(aq|length) %}
+                      {% set ns = namespace(answer=0) %}
+
+                      {% for level in levels %}
+                          <div style="margin-top: 4%">
+                              <div class="row">
+                                  <div class="col-10" style="margin-bottom: 2%">
+                                      <h3>Level {{loop.index}}</h2>
+                                  </div>
+                                  <div class="col-2 text-center my-auto" style="font-weight: bold">
+                                      Answer
+                                  </div>
+                              </div>
+                              {% for tuple in aq[level] %}
+                                  {% set FA_index = tuple[0] - 1 %}
+                                  {% set capability = tuple[1] %}
+                                  {% set focusArea = mm[FA_index][0] %}
+
+                                  <div class="row" style="margin-bottom: 2%">
+                                      <div class="col-2">
+                                          <b>{{focusArea}}</b>
+                                      </div>
+                                      <div class="col-8">
+                                          {{capability}}
+                                      </div>
+                                      <div class="col-2 text-center my-auto">
+                                          {{answers[ns.answer]}}
+                                      </div>
+                                  </div>
+                                  {% set ns.answer = ns.answer + 1 %}
+                              {% endfor %}
+                          </div>
+
+                          <hr>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- ====== End assessment answers ====== -->
+
+
+        <!-- ====== Improvement actions ====== -->
+        <div style="margin-bottom: 10%">
+            <div class="inner-page">
+                <H2>Improvement actions</H2>
+            </div>
+
+            <div>
+                {% if results.improvementCapabilities|length == 0 %}
+                    <div id="counts" class="counts" style="padding: 30px 0px">
+                        <div class="container" data-aos="fade-up">
+                            <div class="count-box">
+                                <div class="d-flex align-items-center" style="margin: auto">
+                                    <img src="/img/medal-reward.svg" alt="Medal">
+                                    <span style="margin: 0px 30px">Max level reached!</span>
+                                    <img src="/img/medal-reward.svg" alt="Medal">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-aos="fade-up">
+                        <div class="card-body">
+                            There are no further improvement actions!
+                        </div>
+                    </div>
+
+                {% else %}
+
+                    <div id="counts" class="counts" style="padding: 30px 0px">
+                        <div class="container" data-aos="fade-up">
+                            <div class="count-box">
+                                <div class="d-flex align-items-center" style="margin: auto">
+                                    <span>Level&nbsp;&nbsp;{{results.maturityLevel}}</span>
+                                    <i class="bi bi-chevron-double-right" style="color: green; margin: 0px 20px"></i>
+                                    <span>Level&nbsp;&nbsp;{{results.maturityLevel + 1}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for capability in results.improvementCapabilities %}
+                        <div class="card" data-aos="fade-up" style="margin-bottom: 2%">
+                            <div class="card-body">
+                                <h5 class="card-title" style="margin-bottom: 2%">{{capability.focusAreaName}}</h5>
+                                {% for action in capability.improvementActions %}
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <i class="bi bi-caret-right-fill" style="color: blue"></i>
+                                        </div>
+                                        <div class="col" style="padding: 0px">
+                                            <div style="margin-bottom: 1%; padding-right: 10px">{{action}}</div>
+                                        </div>
+                                    </div>
+                                {% endfor%}
+                            </div>
+                        </div>
+
+                    {% endfor%}
+                {% endif %}
+            </div>
+        </div>
+        <!-- ====== End improvement actions ====== -->
+
+        <div class="inner-page" style="margin-bottom: 2%">
+            <H2>Other</H2>
+        </div>
+
+        <!-- ====== Evaluation ====== -->
+        {% if evaluation == 'True' %}
+            <div class="card" id="evaluationCard" data-aos="fade-up" style="margin-bottom: 4%; border-color: #0b198f;">
+                <div class="card-header" style="background-color: #0b198f; color: #ffffff">
+                    Evaluation
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <span style="margin-bottom: 2%"><b>Press the button below to help us improve the model!</b></span>
+                        <span>You have indicated that you wish to participate in the evaluation study.</span>
+                        <span>A <b><i>new tab</i></b> will be opened allowing you to consult your results while answering the evaluation questions.</span>
+                        <div class="d-inline-flex">
+                          <button type="button" id="evalButton" class="btn btn-primary" onclick="openEval()" style="margin-top: 2%">Perform evaluation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <!-- ====== End evaluation ====== -->
+
+
+        <!-- ====== Report download ====== -->
+        <div class="card" data-aos="fade-up">
+            <div class="card-header">
+                Download
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-filetype-pdf" style="font-size: 3em"></i>
+                    <!--Maturity_report.pdf-->
+                    <a href="{{ url_for('download_results', fileName=uniqueID) }}" style="margin-left: 5px"><u>PbD_maturity_report.pdf</u></a>
+                    <span>&nbsp({{fileSize}})</span>
+                    <i class="bi bi-download" style="margin-left: 10px" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <!-- ====== End report download ====== -->
+
+      </div>
+    </section>
+  </main>
+  <!-- End results -->
+
+  <!-- End #main -->
+
+<script>
+
+    var uniqueID = {{uniqueID|tojson}};
+
+    function openEval(){
+        window.open(`https://www.privacymaturity.org/evaluation/${uniqueID}`, "_blank");
+    }
+
+</script>
+
+{% endblock %}

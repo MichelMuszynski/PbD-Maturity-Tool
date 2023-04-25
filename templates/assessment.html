@@ -1,0 +1,415 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <!--<link rel="canonical" href="https://www.privacymaturity.org/"/>-->
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumb" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Maturity Assessment</li>
+        </ol>
+        <h2>Maturity Assessment</h2>
+
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Skip sticky ======= -->
+    <div id="skipSticky" style="position: sticky; top: 60px; z-index: 1020; display: none">
+        <div class="alert alert-warning" role="alert" style="padding: 7px">
+            <div style="display: flex; align-items: center; justify-content: center">
+                <span style="font-size: 14pt">The overall maturity can already by determined!&nbsp;&nbsp;It is possible to skip to the results:</span>
+                <button type="button" id="skipbutton" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left: 20px">More info</button>
+            </div>
+        </div>
+    </div>
+    <!-- End skip sticky -->
+
+
+    <!-- ======= Variables =======
+    consent: boolean denoting whether consent was given for the evaluation.
+    mm: maturity model list
+    aq: assessment questions list
+    eq: evaluation questions list
+    -->
+
+
+
+    <!-- ======= Assessment instrument ======= -->
+    <section id="assessmentSection" class="inner-page" style="min-height: 100vh; overflow-x: auto">
+        <form id="assessmentForm" method="post" onsubmit="return lastPageCheck()" class="container needs-validation" id="radiosform">
+
+
+          <!-- Hidden inputs -->
+          <input type="hidden" id="hiddenDate" name="dateUTC" value=""/>
+          <input type="hidden" id="hiddenST" name="startTimeUTC" value=""/>
+          <input type="hidden" id="hiddenET" name="endTimeUTC" value=""/>
+          <input type="hidden" id="hiddenConsent" name="consent" value=""/>
+          <!-- End hidden inputs -->
+
+
+          {% set levels = range(aq|length) %}
+          {% set pages = aq|length %}
+          {% set pageID = 0 %}
+
+
+          <!-- ===== Progress bar ===== -->
+          <div class="progress" style="margin-bottom: 2%">
+              <div class="progress-bar" role="progressbar" id="progressbar" style="padding: 0% 1%; width: {{1/pages*100}}%" aria-label="Survey progress" aria-valuenow="1" aria-valuemin="1" aria-valuemax="{{pages}}">{{(1/pages*100)|round|int}}%</div>
+          </div>
+          <!-- End progress bar -->
+
+
+          <!-- ======= Assessment Questions ======= -->
+          {% for level in levels %}
+              {% set pageID = level %}
+
+              <div id="{{pageID}}" class="container" style="padding: 0px; margin-bottom: 3%; display: none; width: 100%; height: 100%; float: left">
+
+                  <!--
+                  <div class="row">
+                      <div class="col-8">
+                          <h3>Level {{level + 1}}</h2>
+                      </div>
+                  </div>-->
+
+                  <div class="row flex-nowrap" style="margin-bottom: 2%">
+                      <div class="col-8" style="font-weight: bold; min-width: 370px">
+                          Are the capabilities below performed, implemented, and/or developed in your organisation?
+                      </div>
+                      <div class="col-1 text-center my-auto" style="font-weight: bold; min-width: 95px">
+                          No
+                      </div>
+                      <div class="col-1 text-center my-auto" style="font-weight: bold; min-width: 95px">
+                          Somewhat
+                      </div>
+                      <div class="col-1 text-center my-auto" style="font-weight: bold; min-width: 95px">
+                          Yes
+                      </div>
+                      <div class="col-1 text-center my-auto" style="font-weight: bold; min-width: 95px">
+                          Unknown
+                      </div>
+                  </div>
+
+                  <hr>
+
+                  {% for tuple in aq[level] %}
+                      {% set FA_index = tuple[0] - 1 %}
+                      {% set capability = tuple[1] %}
+                      {% set focusArea = mm[FA_index][0] %}
+
+                      <div class="row flex-nowrap" style="padding: 7px 0px 7px 0px">
+                          <div class="col-2" style="min-width: 170px">
+                              <b>{{focusArea}}</b>
+                          </div>
+                          <div class="col-6" style="min-width: 200px">
+                              {{capability}}
+                          </div>
+                          <div class="col-1 d-flex justify-content-center align-items-center" style="min-width: 95px">
+                              <input class="form-check-input" style="margin: auto" type="radio" name="{{capability}}" id="blankRadio1" value="No" required>
+                          </div>
+                          <div class="col-1 d-flex justify-content-center align-items-center" style="min-width: 95px">
+                              <input class="form-check-input" style="margin: auto" type="radio" name="{{capability}}" id="blankRadio1" value="Somewhat" required>
+                          </div>
+                          <div class="col-1 d-flex justify-content-center align-items-center" style="min-width: 95px">
+                              <input class="form-check-input" style="margin: auto" type="radio" name="{{capability}}" id="blankRadio1" value="Yes" required>
+                          </div>
+                          <div class="col-1 d-flex justify-content-center align-items-center" style="min-width: 95px">
+                              <input class="form-check-input" style="margin: auto" type="radio" name="{{capability}}" id="blankRadio1" value="Unknown" required>
+                          </div>
+                      </div>
+
+                      <hr>
+                  {% endfor %}
+              </div>
+          {% endfor %}
+          <!-- End questions -->
+
+          <!-- =======  Navigation buttons =======  -->
+          <div id="navButtons" style="text-align:center; display: none">
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" id="previousbutton" class="btn btn-primary btn-lg" onclick="previous()">Back</button>
+              <button type="submit" id="nextbutton" class="btn btn-primary btn-lg" onclick="next()">Next</button>
+            </div>
+          </div>
+          <!-- End navigation buttons -->
+
+          <!-- for debug only -->
+          <div id="counter"></div>
+        </form>
+    </section>
+
+    <!-- =======  Loading screen =======  -->
+    <section id="loadingSection" class="inner-page" style="display: none; min-height: 100vh">
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-center" style="margin: 2% 0%">
+                <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <span style="font-size: 20px">Generating maturity report...</span>
+            </div>
+        </div>
+    </section>
+    <!-- =======  End loading screen =======  -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">Do you wish to skip to the results?</h5>
+            <button type="button" id="close1" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>The overall maturity level can already be calculated.</p>
+            <p>If you are only interested in the overall level you can skip to the results, remaining questions will be answered with 'unknown'.</p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" id="close1" class="btn btn-secondary" data-bs-dismiss="modal" data-dismiss="modal">Continue assessment</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-dismiss="modal" onclick="skipToResults()">Skip to results</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+
+</main>
+<!-- End assessment instrument -->
+
+<!-- End #main -->
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    // Initialise variables.
+    var navigation = 0;
+    var questioncount = {{aq|length - 1}};
+    var lastAQIndex = questioncount;
+    var readyToSubmit = false;
+    var capsPerLevel = [];
+    var questions = {{aq|tojson}};
+    questions.forEach(level => capsPerLevel.push(level.length));
+
+    // Show first page.
+    buttondisable();
+    document.getElementById(navigation).style.display = "block";
+    document.getElementById("navButtons").style.display = "block";
+
+    // Set date.
+    var today = new Date();
+    var date = today.getUTCFullYear() + '-' + (today.getUTCMonth()+1)+ '-' + today.getUTCDate();
+    document.getElementById("hiddenDate").value = date;
+
+    // Set startTime.
+    var startTime = today.getUTCHours() + ":" + today.getUTCMinutes() + ":" + today.getUTCSeconds();
+    document.getElementById("hiddenST").value = startTime;
+
+    // Set consent boolean.
+    var consent = {{consent|tojson}}
+    document.getElementById("hiddenConsent").value = consent;
+
+    // Previous navigation button has been pressed.
+    function previous(){
+
+        // Hide current focus area questions and show previous focus area questions.
+        document.getElementById("previousbutton").blur();
+        document.getElementById(navigation).style.display = "none";
+        navigation = Math.max(navigation - 1, 0);
+        document.getElementById(navigation).style.display = "block";
+        buttondisable();
+        //document.getElementById("counter").innerText = "counter: "+ navigation +", question count: "+ questioncount;
+
+        // Update progress bar.
+        var progresswidth = (navigation + 1)/(questioncount + 1)*100
+        document.getElementById("progressbar").style.width = String(progresswidth)+"%";
+        document.getElementById("progressbar").innerHTML = String(Math.round(progresswidth))+"%";
+    }
+
+    // Next navigation button has been pressed.
+    function next(){
+        inputElements = document.getElementById(navigation).getElementsByTagName('input');
+
+        // Check if forms are valid in current div (navigation), i.e., all questions are answered.
+        var formIsValid = false;
+
+        for (let i = 0; i < inputElements.length; i++)
+        {
+            formIsValid = inputElements[i].validity.valid;
+            if(formIsValid == false)
+            {
+                break;
+            }
+        }
+
+        if(formIsValid)
+        {
+            // set endTime if in last div
+            if (navigation == questioncount)
+            {
+                var today = new Date();
+                var endTime = today.getUTCHours() + ":" + today.getUTCMinutes() + ":" + today.getUTCSeconds();
+                document.getElementById("hiddenET").value = endTime;
+
+                // Allow to submit
+                readyToSubmit = true;
+
+                // Loading
+                document.getElementById("skipSticky").style.display = "none";
+                document.getElementById("assessmentSection").style.display = "none";
+                document.getElementById("loadingSection").style.display = "block";
+                window.location.href ="#";
+                return;
+            }
+            else
+            {
+                readyToSubmit = false;
+            }
+
+            // Check for skip in assessment questions.
+            var divIndex = navigation;
+
+            // Get the values of all checked radio buttons.
+            var values = [];
+            $(`input[type=radio]:checked`).each(function(index, element) { values[index] = $(element).val()});
+
+            // Check if all radio button values are "Yes" or not.
+            if(!values.every( (val, i, arr) => val === "Yes" ))
+            {
+                // Not all checked boxes have value "Yes".
+                // Show skip option.
+                document.getElementById("skipSticky").style.display = "block";
+            }
+            else
+            {
+                // All checked boxes have value "Yes".
+                // Do not show skip option.
+                document.getElementById("skipSticky").style.display = "none";
+            }
+
+            // Handle navigation: hide current focus area questions and show next focus area questions.
+            document.getElementById("nextbutton").blur();
+            document.getElementById(navigation).style.display = "none";
+            navigation = Math.min(navigation + 1, questioncount);
+            document.getElementById(navigation).style.display = "block";
+            buttondisable();
+            //document.getElementById("counter").innerText = "counter: "+ navigation +", question count: "+ questioncount;
+
+            // Update progress bar.
+            var progresswidth = (navigation + 1)/(questioncount + 1)*100;
+            document.getElementById("progressbar").style.width = String(progresswidth)+"%";
+            document.getElementById("progressbar").innerHTML = String(Math.round(progresswidth))+"%";
+            //alert("Current navigation: " + navigation + ", questioncount: " + questioncount);
+
+            window.location.href ="#breadcrumb";
+        }
+    }
+
+    function buttondisable(){
+        if (navigation == 0)
+        {
+            document.getElementById("previousbutton").style.display = "none";
+        }
+        else
+        {
+            document.getElementById("previousbutton").style.display = "block";
+        }
+
+        if (navigation == questioncount)
+        {
+            document.getElementById("nextbutton").innerText = "Submit";
+        }
+        else
+        {
+            document.getElementById("nextbutton").innerText = "Next";
+        }
+    }
+
+    function skipToResults(){
+        //$('#myModal').modal('hide');
+
+        var divIndex = navigation;
+        var maxDivIndex = questioncount;
+
+        // Set remaining (unchecked) radio buttons to "Unknown" and check them.
+        for(i = divIndex; i <= questioncount; i++)
+        {
+            // Get names of button groups of current div.
+            var radioNames = [];
+            $.each( $(`#${i} input:radio`), function(){
+
+              var myname= this.name;
+              if( $.inArray( myname, radioNames ) < 0 ){
+                 radioNames.push(myname);
+              }
+            });
+
+            //alert(`num of buttongroups: ${radioNames.length}, names: ${radioNames}`);
+
+            // For each button group on current div, see if checked. If not checked, check with value "Unknown".
+            for(j = 0; j < radioNames.length; j++)
+            {
+                name = radioNames[j];
+                var isChecked = $(`#${i} input[type=radio][name="${name}"]`).is(':checked');
+                if(!isChecked)
+                {
+                    $(`#${i} input[type=radio][name="${name}"][value='Unknown']`).prop("checked", true).trigger('change');
+                }
+            }
+        }
+
+        // Extra check for form validity.
+        inputElements = document.getElementsByTagName('input');
+
+        // Check if all forms are valid, i.e., all questions are answered.
+        var formIsValid = false;
+
+        for (let i = 0; i < inputElements.length; i++)
+        {
+            formIsValid = inputElements[i].validity.valid;
+            if(formIsValid == false)
+            {
+                break;
+            }
+        }
+
+        if(formIsValid)
+        {
+            // set endTime.
+            var today = new Date();
+            var endTime = today.getUTCHours() + ":" + today.getUTCMinutes() + ":" + today.getUTCSeconds();
+            document.getElementById("hiddenET").value = endTime;
+
+            // Allow to submit.
+            readyToSubmit = true;
+
+            // Show loading screen.
+            document.getElementById("skipSticky").style.display = "none";
+            document.getElementById("assessmentSection").style.display = "none";
+            document.getElementById("loadingSection").style.display = "block";
+            window.location.href ="#";
+
+            // Submit the form.
+            document.getElementById('assessmentForm').submit();
+        }
+    }
+
+    function lastPageCheck(){
+        return readyToSubmit;
+    }
+
+</script>
+
+{% endblock %}

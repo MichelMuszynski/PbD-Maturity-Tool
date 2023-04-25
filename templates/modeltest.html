@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <link rel="canonical" href="https://www.privacymaturity.org/model"/>
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Model</li>
+        </ol>
+        <h2>Model</h2>
+
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+
+    <!-- ======= Model ======= -->
+    <section class="inner-page">
+      <div class="container inner-page-width">
+        <div class="inner-page" style="margin-bottom: 3%">
+          <H2>Maturity model</H2>
+        </div>
+
+        <div style="margin-bottom: 3%">
+            <p>
+                The focus area maturity model for privacy-by-design consists of 14 focus areas and 60 capabilities across 10 maturity levels.
+                The table below displays the maturity matrix with each focus area containing its respective capabilities distributed over the maturity levels based on the dependencies among them.
+                A full overview with description of all capabilities can be found below for each focus area.
+            </p>
+        </div>
+
+        <div class="table-responsive" style="margin-bottom: 50px">
+            <table class="table table-bordered text-nowrap">
+                <tbody>
+                    <!-- Table head -->
+                    <tr>
+                        <td colspan="2">
+                            <!-- empty -->
+                        </td>
+                        <td colspan="100%">
+                            <div style="text-align: center; font-weight:bold">Maturity level</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div style="text-align: center; font-weight:bold">#</div>
+                        </td>
+
+                        <td>
+                            <div style="font-weight:bold">Focus area</div>
+                        </td>
+
+                        {% for focusarea in mm[0][1:] %}
+                          <td style="vertical-align: center; text-align: center; width: 5%">{{loop.index0}}</td>
+                        {% endfor %}
+                    </tr>
+                    <!-- End table head -->
+
+                    <!-- Table body -->
+                    {% for focusarea in mm %}
+                    {% set focusarealoop = loop %}
+                    {% set capabilityindex = namespace(value=0) %}
+                    <tr>
+                        <!-- # -->
+                        <td style="vertical-align: center; text-align: center; width: 5%">
+                            {{loop.index}}
+                        </td>
+                        <!-- End # -->
+
+                        <!-- Focus area -->
+                        <td>
+                            {{focusarea[0]}}
+                        </td>
+                        <!-- End focus area -->
+
+                        <!-- Capabilities -->
+                        {% for capability in focusarea[1:] %}
+                          {% if loop.index0 == 0 %}
+                              <td style="vertical-align: center; text-align: center">
+                                  <!--
+                                  <i class="bi bi-align-start"></i>
+                                  <i class="bi bi-arrow-bar-right"></i>
+                                  <i class="bi bi-asterisk"></i>
+                                  <i class="bi bi-circle-fill"></i>
+                                  <i class="bi bi-dash"></i>
+                                  <i class="bi bi-dash-lg"></i>
+                                  <i class="bi bi-dash-square"></i>
+                                  <i class="bi bi-diamond-fill"></i>
+                                  <i class="bi bi-dot"></i>
+                                  <i class="bi bi-record"></i>
+                                  <i class="bi bi-record-fill"></i>
+                                  <i class="bi bi-square-fill"></i>
+                                  <i class="bi bi-stop"></i>
+                                  <i class="bi bi-square-fill" style="font-size: 8px;"></i>
+                                  -->
+                                  <i class="bi bi-square-fill" style="font-size: 8px;"></i>
+                              </td>
+                          {% else %}
+                              {% if capability == '' %}
+                                  <td>
+                                      {{capability}}
+                                  </td>
+                              {% else %}
+                                  <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center">
+                                      {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                      {{capability}}
+                                  </td>
+                              {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                        <!-- End capabilities -->
+                    </tr>
+                    {% endfor %}
+                    <!-- End table body -->
+
+                </tbody>
+            </table>
+
+            <!-- Hover info  -->
+            <div style="padding-left: 10px">
+                <i class="bi bi-info-circle" style="color: blue"></i> <i style="margin-left: 5px; font-size: 11pt">Hover over the letters for a full description.</i>
+            </div>
+
+        </div>
+
+        <!-- ======= Capability list ======= -->
+        <div class="inner-page" style="margin-bottom: 3%">
+            <H2>Capabilities</H2>
+        </div>
+
+        <div class="accordion" id="accordionFocusareas">
+          {% for focusarea in mm %}
+          {% set outerLoop = loop.index0 %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#FA{{loop.index}}" aria-expanded="false" aria-controls="FA{{loop.index}}">
+                <div style="font-weight:bold">{{focusarea[0]}}</div>
+              </button>
+            </h2>
+            <div id="FA{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="headingOne">
+              <div class="accordion-body">
+                  <!-- hier invoegen capability loop-->
+                  <div class="container">
+                  {% for capability in cd[outerLoop] %}
+                      {% set letter, desc = capability %}
+                      <div class="row" style="margin-bottom: 1.2em">
+                          <div class="col col-md-1 text-center align-self-center">
+                              <span style="font-weight: bold; font-size: 1.5em; color: #4154f1;">{{letter}}</span>
+                          </div>
+                          <div class="col align-self-center">
+                              {{desc}}
+                          </div>
+                      </div>
+                  {% endfor %}
+                  </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- End capability list -->
+
+      </div>
+    </section>
+  </main>
+  <!-- End model -->
+
+  <!-- End #main -->
+
+{% endblock %}

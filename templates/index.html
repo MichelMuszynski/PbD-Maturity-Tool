@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <link rel="canonical" href="https://www.privacymaturity.org/"/>
+{% endblock %}
+
+{% block body %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Grow your organisation<br>to the next level</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Assess your Privacy-by-Design maturity, identify weaknesses, and develop an improvement path through our focus area maturity model designed by the AI Lab for Public Services of Utrecht University</h2>
+          <!--<h2 data-aos="fade-up" data-aos-delay="400">Assess your Privacy-by-Design maturity using our focus area maturity model to identify weaknesses and to develop an improvement path</h2>-->
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="{{url_for('assessmentIntro')}}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Assess maturity</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <div>
+                <picture>
+                    <source srcset="/img/webp/hero-img.webp" type="image/webp">
+                    <img src="/img/hero-img.png" class="img-fluid" alt="Main image on the home page consisting of bundled privacy related terms as words">
+                </picture>
+            </div>
+            <div style="margin-top: 5%">
+                <a href="https://www.uu.nl/onderzoek/ai-labs/ai-lab-voor-de-publieke-diensten">
+                    <picture>
+                        <source srcset="/img/webp/UUlogo.webp" type="image/webp">
+                        <img src="/img/UUlogo.png" class="img-fluid" alt="Logo of Utrecht University" style="width: 70%; display: block; margin-left: auto; margin-right: auto">
+                    </picture>
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Benefits Section ======= -->
+    <section id="benefits" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Benefits</h2>
+          <p>Focus Area Maturity Models</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <picture>
+                <source srcset="/img/webp/benefits-1.webp" type="image/webp">
+                <img src="/img/benefits-1.png" class="img-fluid" alt="Dark blue arrow pointing down and light blue arrow pointing up">
+              </picture>
+              <h3>Strengths & Weaknesses</h3>
+              <p>Focus area maturity models identify leading and lagging capabilities.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <picture>
+                <source srcset="/img/webp/benefits-2.webp" type="image/webp">
+                <img src="/img/benefits-2.png" class="img-fluid" alt="A three dimensional cube next to the same three dimensional cube but split into smaller cubes with some of them color highlighted">
+              </picture>
+              <h3>Increased Granularity</h3>
+              <p>Dividing organisational practices into focus areas allows for detailed insight into maturity.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box">
+              <picture>
+                <source srcset="/img/webp/benefits-3.webp" type="image/webp">
+                <img src="/img/benefits-3.png" class="img-fluid" alt="An icon of a graph with an upwards arrow">
+              </picture>
+              <h3>Concrete Improvement</h3>
+              <p>The higher granularity combined with capability dependencies allow for the formulation of a natural development path towards higher maturity levels.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <!-- End Benefits Section -->
+
+    <!-- ======= Model Section ======= -->
+    <section id="model" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>The model</h3>
+              <h2>A focus area maturity model<br>for Privacy-by-Design</h2>
+              <p>
+                The privacy-by-design focus area maturity models identifies 14 focus areas with a total of 60 capabilities spread over 10 maturity levels. The unique dependency structure provides a natural development order and guides organisations in formulating a development path to grow to the next level.
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="{{url_for('model')}}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>View model</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <picture>
+              <source srcset="/img/webp/model.webp" type="image/webp">
+              <img src="/img/model.jpg" class="img-fluid" alt="An office computer displaying the maturity model.">
+            </picture>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <!-- End Model Section -->
+
+    <!-- ======= Research Section ======= -->
+    <section id="research" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <picture>
+              <source srcset="/img/webp/research.webp" type="image/webp">
+              <img src="/img/research.jpg" class="img-fluid" alt="A male looking at a wall that has papers pinned to it">
+            </picture>
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>The research</h3>
+              <h2>Academia meets industry</h2>
+              <p>
+                Maturity models from the industry often lack theoretical grounding, while scientific models tend to be theoretical only without incorporating practical experiences. The AI Lab for Public Services of Utrecht University brings academia and industry together to get the best of both worlds.
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="{{url_for('research')}}" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Learn more</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <!-- End Research Section -->
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>F.A.Q</h2>
+          <p>Frequently Asked Questions</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- F.A.Q List 1-->
+            <div class="accordion accordion-flush" id="faqlist1">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    What is privacy-by-design?
+                  </button>
+                </h2>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    <a href="https://www.ipc.on.ca/wp-content/uploads/resources/7foundationalprinciples.pdf"><u>Privacy-by-design</u></a> is a development paradigm that prescribes the embedding of privacy in the life cycle of systems, processing activities, and data.
+                    It stimulates the early consideration of privacy issues and trade-offs in order to avoid sub-optimal and expensive solutions.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    What is a focus area maturity model?
+                  </button>
+                </h2>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    A maturity model is an artifact that allows an assessor to determine the level of development or accomplishment of an organisation in a particular domain.
+                    <a href="https://www.researchgate.net/publication/311667299_Improving_IS_Functions_Step_by_Step_The_use_of_focus_area_maturity_models"><u>Focus area maturity models</u></a>
+                     distinguish themselves from the conventional CMM-type models by not using a set number of maturity levels.
+                    They use a unique dependency structure to determine the number of levels organically and provide a more granular overview by splitting the domain into focus areas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                    For what kind of organisations is this model relevant?
+                  </button>
+                </h2>
+                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    Privacy-by-design is relevant when privacy must be considered in the processing of personal data.
+                    This model can help any organisation that processes personal data and has the intention to actively start improving their privacy practices in order to reach a more advanced level of accomplishment.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+
+            <!-- F.A.Q List 2-->
+            <div class="accordion accordion-flush" id="faqlist2">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
+                    Why should I perform a privacy-by-design maturity assessment?
+                  </button>
+                </h2>
+                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                      Performing an assessment allows you to gain insight into where your organisation stands.
+                      Once you have a maturity assessment, your organisation can formulate a maturity ambition and start to implement the suggested improvement actions to reach the next level.
+                      The purpose of reaching higher maturity is to improve the organisation's services, value propositions, and ability to reach organisational goals.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
+                    How can I find out what maturity level my organisation has?
+                  </button>
+                </h2>
+                <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                    We provide a <a href="{{url_for('assessmentIntro')}}"><u>maturity assessment service</u></a> that allows you to perform a self-assessment by indicating whether a number of capabilities are implemented in your organisation.
+                    The results of this assessment will provide you with an overall maturity level and an overview of all focus areas and their individual level of development.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
+                    Do I have to participate in this research to perform an assessment?
+                  </button>
+                </h2>
+                <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                      No! Continuous validation and evaluation are employed to improve the model. Everyone is invited to participate in these efforts by answering additional evaluation questions.
+                      If you do not wish to participate, please make sure you <a href="{{url_for('assessmentIntro')}}"><u>select that you do not wish to participate</u></a>, you will be able to just perform the assessment.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End F.A.Q Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

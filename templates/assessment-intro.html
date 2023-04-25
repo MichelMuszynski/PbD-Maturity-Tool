@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <link rel="canonical" href="https://www.privacymaturity.org/assessment-intro"/>
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Assessment intro</li>
+        </ol>
+        <h2>Assessment introduction</h2>
+
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Variables =======
+    mm:
+    aq:
+    -->
+
+    <!-- ======= Assessment introduction ======= -->
+    <section class="inner-page" style="min-height: 100vh">
+      <div class="container inner-page-width">
+        <div style="margin-bottom: 3%">
+            <h2>Introduction</h2>
+            <div style="margin-bottom: 2%">
+                The focus area maturity model for privacy-by-design allows you to assess the maturity of the privacy-by-design practices of your organisation.
+                The model consists of 10 levels denoting the maturity from 0 to 10 for each of the 14 focus areas.
+                Each question asks whether a practice has been implemented in your organisation and has four answer options.
+                Please answer all questions as accurately and truthfully as possible.
+            </div>
+            <div style="margin-bottom: 2%">
+                The model is subject to continued scientific validation and evaluation.
+                You have the opportunity to contribute to the research behind this model by answering additional questions regarding your experience with the assessment and the model.
+                Please read the informed consent notice below before you make a decision.
+                Participation is completely voluntary. You can still just perform the assessment without participating, make sure to indicate that you do not wish to participate below in that case.
+            </div>
+            <div>
+                It is highly recommended that you familiarise yourself with <a href="{{url_for('model')}}"><u>the model</u></a> before performing an assessment, especially if you choose to participate in the evaluation study!
+                Depending on the maturity level, performing the assessment takes 30-60 minutes.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3%">
+            <div class="accordion" id="accordionConsent">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AccConsentOne" aria-expanded="false">
+                    <div style="font-weight:bold">Informed consent notice</div>
+                  </button>
+                </h2>
+                <div id="AccConsentOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                  <div class="accordion-body">
+                      <picture>
+                          <source srcset="/img/webp/UUlogo_minimal.webp" type="image/webp" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 40px; margin-top: 40px; max-width: 30%; height: auto">
+                          <img src="/img/UUlogo_minimal.png" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 40px; margin-top: 40px; max-width: 30%; height: auto" alt="Logo of Utrecht University">
+                      </picture>
+
+                      <h1 style="text-align: center">Informed consent</h1>
+                      <h2 style="margin-bottom: 2%; text-align: center">A focus area maturity model for privacy-by-design</h2>
+                      <p>
+                          You are invited to participate in a research study about privacy-by-design maturity.
+                          Please read this informed consent notice carefully before participating.
+                          Privacy-by-design is a paradigm that prescribes embedding privacy concerns in the life cycle of systems, processing activities, and data.
+                          Often this term is described as vague and there is no consensus on what privacy-by-design entails or how it should be applied in practice.
+                      </p>
+                      <p>
+                          The goal of this study is to identify and classify the best privacy-by-design activities and consolidate them in a maturity model.
+                          This type of model can guide practitioners in determining what must be done and in what order so that privacy-by-design can be applied effectively.
+                      </p>
+                      <p>
+                          Your participation in this study consists of completing a questionnaire as part of the evaluation of the model.
+                          You will perform the regular assessment which will include several additional questions about your opinion of the model, the assessment, and the resulting maturity results.
+                          Your answers to these questions will be used to further improve the model and support future research.
+                      </p>
+                      <p>
+                          Your participation in this study is completely voluntary. You are not forced to participate and you may stop participating at any time, this will have no negative effects.
+                          There are no physical, legal, or economic risks tied to this research. There are no additional inducements or incentives apart from the maturity assessment results tied to your participation in this research.
+                      </p>
+                      <p>
+                          The answers you provide during the assessment and evaluation questions will be stored and processed.
+                          The assessment questions ask for information regarding the privacy practices of your organisation while the evaluation questions ask for your opinion.
+                          We do not ask you to provide any personal data, all data is anonymised and will not be related to any specific person.
+                          Research data will be stored for 10 years following the <a href="https://www.uu.nl/sites/default/files/university_policy_framework_for_research_data_utrecht_university_-_january_2016.pdf"><u>policy framework for research data</u></a>
+                          of Utrecht University.
+                      </p>
+                      <p>
+                          This research study is conducted by researchers from Utrecht University. For questions or complaints regarding your data, you may contact the data protection officer of Utrecht University (<a href="mailto:privacy@uu.nl" target="_blank"><u>privacy@uu.nl</u></a>).
+                          For general questions or further information regarding this research, you can contact the researchers:
+                      </p>
+                      <br>
+                      <div class="row">
+                          <div class="col-3">
+                              <div>Lead researcher</div>
+                              <div>Researcher</div>
+                              <div>Project supervisor</div>
+                          </div>
+                          <div class="col-3">
+                              <div>F. van Dijk, MSc</div>
+                              <div>M. Muszynski, BSc</div>
+                              <div>prof. dr. S. Brinkkemper</div>
+                          </div>
+                          <div class="col">
+                              <div><a href="mailto:f.w.vandijk@uu.nl" target="_blank"><u>f.w.vandijk@uu.nl</u></a></div>
+                              <div><a href="mailto:m.muszynski@students.uu.nl" target="_blank"><u>m.muszynski@students.uu.nl</u></a></div>
+                              <div><a href="mailto:s.brinkkemper@uu.nl" target="_blank"><u>s.brinkkemper@uu.nl</u></a></div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div>
+            <form method="post" class="needs-validation" id="radiosConsentForm">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="radioConsentCheck" id="radioConsent1" value="True" required>
+                  <label class="form-check-label" for="radioConsent1">
+                    I understand the informed consent notice and I agree to participate in this study.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="radioConsentCheck" id="radioConsent2" value="False" required>
+                  <label class="form-check-label" for="radioConsent2">
+                    I do NOT agree to participate in this study.
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 2%">Start assessment</button>
+            </form>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Assessment introduction -->
+
+</main>
+<!-- End main -->
+
+{% endblock %}

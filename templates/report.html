@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta name="title" content="Privacy-by-Design Maturity Report">
+  <meta name="description" content="Our focus area maturity model allows you to assess the privacy-by-design maturity of your organization and to identify strong and weak capabilities. Use our maturity model for free and perform an assessment to discover where your organization can improve in employing privacy-by-design practices.">
+  <meta name="keywords" content="Privacy-by-Design, Privacy, Maturity, Maturity model, Focus area, Capability, Assessment">
+  <meta name="author" content="www.privacymaturity.org">
+  <meta http-equiv="content-language" content="en">
+
+  <title>Privacy-by-Design Maturity Report</title>
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">-->
+
+  <!-- Template Main CSS File -->
+  <!--<link href="/css/style.css" rel="stylesheet">-->
+
+</head>
+
+<body>
+    <div style="width: 100%; margin: auto; font-family: Nunito, sans-serif; font-weight: 700;">
+        <!-- ======= Header ======= -->
+        <div class="flex-container" style="display: flex; align-items: center; border-style: solid; border-color: #012970; height: 70px; padding: 10px; margin-bottom: 5%">
+            <img src="/home/Mikael128/mysite/static/img/logo.png" alt="Logo of three blue boxes lined up as steps" style="margin: 0px 5px">
+            <span style="font-size: 25px; color: #012970; margin-left: 1%; white-space: nowrap">Privacy-by-Design Maturity</span>
+
+            <div style="margin-left: auto; margin-right: 0%">
+                <div class="flex-container" style="display: flex; flex-direction: column; font-size: 12px;">
+                    <div style="margin-left: auto">{{today_date}}</div>
+                    <div><a href="https://www.privacymaturity.org/">www.privacymaturity.org</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- ======= Body ======= -->
+        <div style="border-style: none; margin-bottom: 10%">
+
+            <div style="margin-bottom: 4%">
+                <H2 style="color: #012970">Maturity assessment results</H2>
+            </div>
+
+            <div style="margin-bottom: 4%">
+                <p style="font-weight: 500">This report shows the maturity results based on the provided answers during the assessment.
+                The coloured cells in the table below denote the maturity level per focus area.
+                The last column that is entirely coloured will be the overall maturity level.
+                Cells that are partially coloured indicate capabilities that are partially developed.
+                The improvement actions tell you what must be done to reach the next maturity level.
+                </p>
+            </div>
+
+            <!-- ====== Model with results ====== -->
+            <div style="margin-bottom: 2%">
+                <table style="border-collapse: collapse; border: 1px solid black; width: 100%">
+                    <tbody>
+                        <!-- Table head -->
+                        <tr>
+                            <td colspan="2" style="border: 1px solid black">
+                                <!-- empty -->
+                            </td>
+                            <td colspan="{{results.levelsCount + 1}}" style="border: 1px solid black; padding: 5px">
+                                <div style="text-align: center; font-weight: bold">Maturity level</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black; padding: 5px">
+                                <div style="text-align: center; font-weight:bold">#</div>
+                            </td>
+
+                            <td style="border: 1px solid black; padding: 5px">
+                                <div style="font-weight:bold">Focus area</div>
+                            </td>
+
+                            {% for focusarea in mm[0][1:] %}
+                                <td style="text-align: center; width: 5%; border: 1px solid black; padding: 5px">{{loop.index0}}</td>
+                            {% endfor %}
+                        </tr>
+                        <!-- End table head -->
+
+                        <!-- Table body -->
+                        {% for focusarea in mm %}
+                        {% set focusarealoop = loop %}
+                        {% set capabilityindex = namespace(value=0) %}
+                        <tr>
+                            <!-- # -->
+                            <td style="text-align: center; width: 5%; border: 1px solid black; padding: 5px; font-weight: 300">
+                                {{loop.index}}
+                            </td>
+                            <!-- End # -->
+
+                            <!-- Focus area -->
+                            <td style="border:1px solid black; border: 1px solid black; padding: 5px; font-weight: 300">
+                                {{focusarea[0]}}
+                            </td>
+                            <!-- End focus area -->
+
+                            <!-- Capabilities -->
+                            {% for capability in focusarea[1:] %}
+                                {% if loop.index0 == 0 %}
+                                    <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} zero" data-bs-content="{{sc[focusarealoop.index0]}}" style="background-color: #BFE5FF; vertical-align: center; text-align: center; border: 1px solid black">
+                                        <i class="bi bi-record-circle" style="font-size: 12px"></i>
+                                    </td>
+                                {% else %}
+                                    {% if capability == '' %}
+                                        {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                            <td style="background-color: #BFE5FF; border:1px solid black">
+                                                {{capability}}
+                                            </td>
+                                        {% elif (loop.index0 > results.focusAreas[focusarealoop.index0].coloringLevelFull) and (loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelPartial) %}
+                                            <td style="background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); border:1px solid black">
+                                                {{capability}}
+                                            </td>
+                                        {% else %}
+                                            <td style="border:1px solid black">
+                                                {{capability}}
+                                            </td>
+                                        {% endif %}
+
+                                    {% else %}
+                                        {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                            <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; background-color: #BFE5FF; border:1px solid black">
+                                                {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                                {{capability}}
+                                            </td>
+                                        {% elif (loop.index0 > results.focusAreas[focusarealoop.index0].coloringLevelFull) and (loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelPartial) %}
+                                            <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); border:1px solid black">
+                                                {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                                {{capability}}
+                                            </td>
+                                        {% else %}
+                                            <td class="noselect" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover" title="{{focusarea[0]}} {{cd[focusarealoop.index0][capabilityindex.value][0]}}" data-bs-content="{{cd[focusarealoop.index0][capabilityindex.value][1]}}" style="text-align: center; border:1px solid black">
+                                                {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                                {{capability}}
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            <!--
+                            {% for capability in focusarea[1:] %}
+                                {% if capability == '' %}
+                                    {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                        <td style="background-color: #BFE5FF; border: 1px solid black; padding: 5px; font-weight: 300">
+                                            {{capability}}
+                                        </td>
+                                    {% else %}
+                                        <td style="border:1px solid black; padding: 5px">
+                                            {{capability}}
+                                        </td>
+                                    {% endif %}
+
+                                {% else %}
+                                    {% if loop.index0 <= results.focusAreas[focusarealoop.index0].coloringLevelFull %}
+                                        <td style="text-align: center; background-color: #BFE5FF; border: 1px solid black; padding: 5px; font-weight: 300">
+                                            {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                            {{capability}}
+                                        </td>
+                                    {% else %}
+                                        <td style="text-align: center; border: 1px solid black; padding: 5px; font-weight: 300">
+                                            {% set capabilityindex.value = capabilityindex.value + 1 %}
+                                            {{capability}}
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}==>
+                            <!-- End capabilities -->
+
+                        </tr>
+                        {% endfor %}
+                        <!-- End table body -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Legend -->
+            <div class="flex-container" style="display: flex; justify-content: center; margin-bottom: 2%">
+                <div style="height: 24px; width: 24px; background-color: #BFE5FF; margin-right: 10px"></div>
+                <div style="font-weight: 300">Fully developed</div>
+                <div style="height: 24px; width: 24px; background: repeating-linear-gradient(-45deg, #BFE5FF, #BFE5FF 7px, white 0px, white 14px); margin-left: 15px ; margin-right: 10px"></div>
+                <div style="font-weight: 300">Partially developed</div>
+            </div>
+
+
+        <!-- ====== End model with results ====== -->
+
+            <div>
+                <div class="flex-container" style="display: flex; justify-content: center">
+
+                    <div style="border-style: solid; border-width: 1px; border-radius: 5px; margin: 0px 10px; width: 100%; padding: 10px">
+                        <div style="text-align: center; font-weight: 700; color: #012970">Overall maturity</div>
+                        <div style="text-align: center; font-weight: 500">{{results.maturityLevel}}</div>
+                    </div>
+
+                    <div style="border-style: solid; border-width: 1px; border-radius: 5px; margin: auto; width: 100%; padding: 10px">
+                        <div style="text-align: center; font-weight: 700; color: #012970">Lowest focus area</div>
+                        <div style="text-align: center; font-weight: 500">{{results.lowestFA.name}}: {{results.lowestFA.coloringLevelFull}}</div>
+                    </div>
+
+                    <div style="border-style: solid; border-width: 1px; border-radius: 5px; margin: 0px 10px; width: 100%; padding: 10px">
+                        <div style="text-align: center; font-weight: 700; color: #012970">Highest focus area</div>
+                        <div style="text-align: center; font-weight: 500">{{results.highestFA.name}}: {{results.highestFA.coloringLevelFull}}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ======= End body ======= -->
+
+        <!-- ======= Improvement actions ======= -->
+        <div style="border-style: none; margin-bottom: 5%">
+            <div style="margin-bottom: 3%">
+                <H3 style="color: #012970">Improvement actions</H3>
+            </div>
+
+            <div>
+                <div>
+                {% if results.improvementCapabilities|length == 0 %}
+                    <div style="border-style: solid; border-width: 1px; border-radius: 5px; padding: 10px">
+                        <div>
+                            You are at the highest maturity level, there are no further improvement actions!
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="flex-container" style="display: flex; align-items: center; justify-content: center; margin-bottom: 2%; border-style: solid; border-width: 3px; padding: 10px">
+                        <span style="font-size: 20pt; color: #012970">Level {{results.maturityLevel}}</span>
+                        <div style="padding-top: 6px; margin: 0px 10px">
+                            <img src="/home/Mikael128/mysite/static/img/caret-right-fill_green.svg" alt="Caret right.">
+                        </div>
+                        <span style="font-size: 20pt; color: #012970">Level {{results.maturityLevel + 1}}</span>
+
+                    </div>
+
+                    {% for capability in results.improvementCapabilities %}
+                        <div style="margin-bottom: 2%; border-style: solid; border-width: 2px; border-radius: 5px; padding: 10px">
+                            <div>
+                                <h2 style="margin-bottom: 2%; margin-top: 0%; font-size: 15px">{{capability.focusAreaName}}</h2>
+                                {% for action in capability.improvementActions %}
+                                <div class="flex-container" style="display: flex">
+                                    <div style="padding-top: 2px">
+                                        <img src="/home/Mikael128/mysite/static/img/caret-right-fill.svg" alt="Caret right.">
+                                    </div>
+                                    <div style="margin-left: 1%; width: 100%">
+                                        <div style="font-weight: 500; margin-bottom: 2%;">{{action}}</div>
+                                    </div>
+                                </div>
+                                {% endfor%}
+                            </div>
+                        </div>
+                    {% endfor%}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- End improvement actions -->
+
+
+        <!-- ======= Footer ======= -->
+        <div class="flex-container" style="display: flex; align-items: center; justify-content: center; background-color: #012970; height: 70px; margin-bottom: 4%">
+            <span style="font-size: 20px; color: white">Privacy-by-Design Maturity -&nbsp;</span><a href="https://www.privacymaturity.org/" style="font-size: 20px; color: white">www.privacymaturity.org</a>
+        </div>
+        <div>
+            <img src="/home/Mikael128/mysite/static/img/UUlogo.png" alt="Logo of Utrecht University" style="display: block; margin-left: auto; margin-right: auto; max-width: 50%">
+        </div>
+
+        <!-- End footer -->
+
+    </div>
+
+  <!-- Vendor JS Files
+  <script src="/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>-->
+
+  <!-- Template Main JS File
+  <script src="/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+
+</body>
+
+</html>

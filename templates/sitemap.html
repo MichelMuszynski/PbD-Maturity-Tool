@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block canon %}
+  <!-- canonical link -->
+  <link rel="canonical" href="https://www.privacymaturity.org/privacy-policy"/>
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>Sitemap</li>
+        </ol>
+        <h2>Sitemap</h2>
+
+      </div>
+    </section>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Sitemap ======= -->
+    <section class="inner-page" style="min-height: 100vh">
+      <div class="container inner-page-width">
+        <div style="margin-bottom: 3%">
+            <h1 style="margin-bottom: 2%">Navigate Our Site</h1>
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('model')}}">Model</a></li>
+                <li><a href="{{url_for('research')}}">Research</a></li>
+                <li><a href="{{url_for('assessmentIntro')}}">Assessment</a></li>
+            </ul>
+        </div>
+      </div>
+    </section>
+    <!-- End Sitemap -->
+
+</main>
+<!-- End main -->
+
+{% endblock %}

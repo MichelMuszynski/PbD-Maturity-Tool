@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block canon %}
+    <!-- canonical link -->
+    <link rel="canonical" href="https://www.privacymaturity.org/research"/>
+{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+              <li><a href="{{url_for('home')}}">Home</a></li>
+              <li>Research</li>
+            </ol>
+            <h2>Research</h2>
+        </div>
+    </section>
+
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Research ======= -->
+    <section class="inner-page">
+        <div class="container inner-page-width">
+            <div>
+                <h2>Combining science and practice</h2>
+                <p>
+                    The use of personal data by government entities attracts a lot of public and political attention.
+                    How and why data are processed should be carefully considered, justified, and documented in accordance with the demands set by the GDPR.
+                    The privacy-by-design maturity model is one part of a greater research project into demonstrable responsible use of personal data.
+                    This project is conducted in partnership between Utrecht University and the government of The Netherlands.
+                    Researchers and public servants work together to gain insight into the privacy-oriented behaviour of organisations,
+                    the factors that stimulate proper privacy behaviour, and the methods to effectively realise privacy protection.
+                    The tight cooperation between practice and science allows us to study concrete problems and apply scientific insights directly in the field.
+                </p>
+                <p>
+                    Our research combines two main concepts: privacy-by-design (PbD) and maturity.
+                    Privacy-by-design is a paradigm that prescribes the embedding of privacy considerations throughout the lifecycle of systems, processing activities, and data.
+                    Maturity refers to the degree of development in securing privacy protections.
+                    A sufficiently mature organisation ensures that privacy receives enough attention before any personal data are processed.
+                </p>
+                <p>
+                    The goal of this research project is to develop a privacy-by-design maturity model.
+                    Additionally, This will be complemented with a process model of the privacy impact assessment (PIA) which will be adaptive to the maturity of the organisation.
+                    This provides organisations and practitioners guidance in their privacy maturity development activities.
+                    The third component is the PIA gap analysis for which we are developing a trustworthy validated approach.
+                    This allows us to maintain a legally required instrument with effective deployment of resources.
+                </p>
+                <p>
+                    This project is part of the AI Lab for Public Services of Utrecht University and is conducted under the supervision of prof. dr. Sjaak Brinkkemper. More information can be found on the <a href="https://www.uu.nl/onderzoek/ai-labs/ai-lab-voor-de-publieke-diensten"><u>AI Lab webpage</u></a> (in Dutch).
+                </p>
+            </div>
+        </div>
+    </section>
+
+  </main>
+  <!-- End Research -->
+
+  <!-- End #main -->
+
+{% endblock %}

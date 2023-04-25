@@ -1,0 +1,187 @@
+ID;Focus area;Capability;Level;Action
+1;1;A;1;Formulate the privacy requirements based on general privacy principles and the PIA.
+2;1;A;1;Formulate privacy requirements before the design stage.
+3;1;A;1;Elicit business and legal requirements with privacy in mind.
+4;1;A;1;Discard business requirements that violate privacy.
+5;1;B;3;Collect all privacy and security requirements.
+6;1;B;3;Validate all collected privacy and security requirements for technical soundness and implementation viability.
+7;1;B;3;Verify adherence of the system during validation.
+8;1;B;3;Verify adherence of the system to the requirements through pre-formulated requirement constraints and tests.
+9;1;C;4;Involve stakeholders extensively in the formulation of privacy goals.
+10;1;C;4;Involve stakeholders extensively in the identification of privacy requirements.
+11;1;C;4;Relate elicited privacy requirements to specific threats or principles.
+12;1;C;4;Track the privacy requirements in the privacy office.
+13;1;C;4;Consider privacy risks for all processes and systems in the design phase.
+14;1;D;5;Gain advice from ethical experts regarding requirements for sensitive personal data.
+15;2;A;2;Ensure that the project architecture for new initiatives contains a privacy architecture viewpoint.
+16;2;A;2;Ensure that the privacy architecture maps privacy requirements onto the project requirements.
+17;2;A;2;Ensure that the privacy architecture translates privacy design strategies to tactics.
+18;2;A;2;Model data sets, processing purposes, lawful grounds, actors, legal roles, and personal data types in the privacy architecture.
+19;2;B;3;Include data flow diagrams that model all processing activities in the enterprise architecture.
+20;2;B;3;Include viewpoints that document the relationship between existing and new elements in the privacy architecture.
+21;2;C;4;Verify the architecture models for completeness and soundness.
+22;2;C;4;Validate the architecture and models to confirm that privacy requirements are implemented correctly.
+23;2;C;4;Integrate selected privacy tactics by means of available privacy design patterns and privacy enhancing technologies.
+24;2;D;7;Exhaustively model processing activities and related information elements so that they are traceable through all layers of architecture.
+25;2;D;7;Select privacy design patterns and privacy enhancing technologies in a structured manner.
+26;2;D;7;Select privacy design patterns and privacy enhancing technologies from a centralised catalogue.
+27;3;A;1;Incorporate privacy requirements in low-level design.
+28;3;A;1;Use acceptance testing to ensure that the system meets the privacy and security requirements.
+29;3;B;2;Integrate the privacy and data protection activities in the method and workflows of the software development lifecycle.
+30;3;B;2;Check operational behaviour against applicable privacy policies and procedures.
+31;3;C;5;Apply and document privacy-by-design within change management procedures.
+32;3;C;5;Ensure a process is in place so that updates to privacy notices are considered for every significant change in the organisation's processing activities.
+33;3;D;6;Establish a catalogue of privacy patterns.
+34;3;D;6;Include relevant code excerpts to the catalogue of privacy patterns.
+35;3;D;6;Design information systems with automated privacy controls where possible.
+36;3;E;9;Embed privacy policies in the system design.
+37;3;E;9;Automatically enforce the privacy policies.
+38;4;A;1;Use purpose-based access to limit access to personal data.
+39;4;A;1;Encrypt personal data in transit.
+40;4;B;5;Select, develop, and use privacy enhancing technologies to implement privacy design patterns.
+41;4;C;7;Assess the selected privacy enhancing technologies for effectiveness and added value to the provided degree of privacy.
+42;4;C;7;Remove unnecessary privacy enhancing technologies.
+43;4;C;7;Catalogue new and existing privacy enhancing technologies.
+44;4;D;8;Embed the enforcement of privacy policies in the technical design where suitable.
+45;4;D;8;Map privacy design patterns to privacy enhancing technologies.
+46;4;D;8;Select privacy enhancing technologies from an established catalogue.
+47;4;D;8;Take into account the quantitative and qualitative costs and benefits of privacy enhancing technologies.
+48;4;D;8;Continuously monitor, optimise, and upgrade privacy protection technology.
+49;4;E;10;Implement revocable privacy through privacy-by-architecture and privacy enhancing technologies.
+50;5;A;2;Perform the PIA in a methodical manner.
+51;5;A;2;Perform the PIA for new projects.
+52;5;A;2;Update the PIA whenever there are relevant changes in the project.
+53;5;A;2;Consider legal requirements in the PIA.
+54;5;A;2;Consider technical security requirements in the PIA.
+55;5;A;2;Consider privacy requirements in the PIA.
+56;5;A;2;Document how all requirements are implemented in the PIA.
+57;5;B;3;Perform a preliminary threshold analysis to determine whether a PIA is necessary.
+58;5;B;3;Perform a preliminary threshold analysis for new initiatives and existing project modifications.
+59;5;B;3;Start the PIA process in the early planning phase.
+60;5;B;3;Ensure that the PIA process lasts throughout the project's lifecycle.
+61;5;C;4;Determine and document the scope and scale of the PIA.
+62;5;C;4;Assign and document the PIA roles.
+63;5;C;4;Assign and document the PIA responsibilities.
+64;5;C;4;Assign and document the PIA approval process.
+65;5;C;4;Assign and document the needed PIA resources.
+66;5;C;4;Implement a privacy control selection process to evaluate the proportionality of selected measures.
+67;5;D;5;Decouple the PIA process and PIA reporting activities.
+68;5;D;5;Ensure PIAs reference PIA reports from the centralised registry.
+69;5;D;5;Assess privacy controls methodically using metrics.
+70;5;D;5;Include the design of the physical environment.
+71;5;E;6;Involve stakeholders in identifying and evaluating privacy risks.
+72;5;E;6;Create a formalised stakeholder consultation plan.
+73;5;E;6;Identify privacy risks continuously during the project and processing activity lifecycle.
+74;5;E;6;Hold a senior executive accountable for the quality and adequacy of the PIA.
+75;5;F;8;Ensure that the PIA covers all privacy issues (as opposed to only information privacy).
+76;5;F;8;Include an assessment of positive and negative privacy impacts in the PIA.
+77;5;F;8;Stimulate privacy-by-design through the formulation of privacy targets in system design.
+78;5;F;8;Review existing PIAs and the overall PIA process constantly as part of a continuous improvement effort.
+79;6;A;3;Review the PIA report.
+80;6;A;3;Tie the PIA report to budget submissions for new projects.
+81;6;B;4;Store PIA reports in a centralised registry.
+82;6;B;4;Make the centralised PIA registry available as a body of knowledge for consultation.
+83;6;B;4;Put a mechanism in place for updating and publishing PIA reports whenever significant changes are made to processing activities.
+84;6;C;6;Make reporting adhere to its own periodic reporting cycle independent of the PIA process.
+85;6;C;6;Submit PIA reports for audit to an independent third-party.
+86;6;D;7;Provide support for multiple PIA reports per PIA process.
+87;6;D;7;Adapt PIA reports to their intended audience in both content and form.
+88;7;A;3;Make privacy-by-design part of a formally defined risk management approach.
+89;7;A;3;Make the PIA part of a formally defined risk management approach.
+90;7;A;3;Employ a privacy risk analysis framework.
+91;7;A;3;Ensure that the privacy risk analysis framework includes privacy risk modelling, risk prioritisation, and mitigational measures formulation.
+92;7;A;3;Identify and document residual risks.
+93;7;B;4;Keep privacy risks in an inventory.
+94;7;B;4;Link privacy risks to specific vulnerabilities or failures.
+95;7;B;4;Map privacy risks to data-flow elements.
+96;7;B;4;Ensure data controllers have a complete overview of documented privacy risks.
+97;7;B;4;Ensure data controllers produce a control implementation plan.
+98;7;B;4;Describe risk mitigation and control feasibility through a cost-benefit analysis in a control implementation plan.
+99;7;B;4;Identify feared events.
+100;7;B;4;Determine the impact and severity of feared events.
+101;7;C;5;Implement and document policies and procedures to monitor and optimise privacy risk management and control.
+102;7;C;5;Improve the formulated policies by feeding back audit results into a change control process.
+103;7;C;5;The data lifecycle is adopted as a basis for the contextual analysis to anticipate privacy invasive events.
+104;7;C;5;The data lifecycle is adopted as a basis for the contextual analysis to identify system harmful activities and risks.
+105;7;D;7;Employ predictive analytics to automatically identify data risks.
+106;7;D;7;Employ predictive analytics to provide early warnings for high-risk operations.
+107;7;D;7;Support continuous risk assessment by a privacy risk & compliance dashboard.
+108;8;A;1;Apply a set of standard processing principles (e.g., GDPR processing principles).
+109;8;B;2;Document the processing principles.
+110;8;B;2;Apply the processing principles in a structured and methodical manner.
+111;8;B;2;Evaluate the processing principles periodically.
+112;8;C;5;Automatically flag or delete data past the retention period when no legal hold has been specified.
+113;8;C;5;Support purpose limitation by role concepts with graduated access rights.
+114;8;C;5;Provide the data protection officer with a dashboard that has an up-to-date view of the lawfulness of personal data processing activities.
+115;8;D;7;Proactively manage compliance with the processing activities to deliver process optimisation.
+116;8;D;7;Identify issues of non-compliance.
+117;8;D;7;Take remedial action to ensure compliance in a timely fashion.
+118;8;D;7;Prevent the deletion of data that would violate legal retention requirements through automated controls.
+119;9;A;1;Record requests related to the exercise of data subject rights.
+120;9;A;1;Monitor requests related to the exercise of data subject rights.
+121;9;A;1;Report on the requests related to the exercise of data subject rights.
+122;9;A;1;Define and implement consent management, including related notices, policies, and procedures.
+123;9;B;6;Facilitate data subject rights through automated technical mechanisms.
+124;9;B;6;Periodically review and improve consent processes where necessary.
+125;9;B;6;Test consent prior to use of personal information through automated processes.
+126;9;C;7;Regularly review policies and procedures related to subject rights facilitation.
+127;9;C;7;Provide the data protection officer with a dashboard that has an up-to-date view of data access requests and responses.
+128;9;D;9;Employ user-driven control of personal data.
+129;9;D;9;Offer data subjects that do not consent to provide personal data equitable conditions.
+130;9;D;9;Automatically update consent items in all affected processing systems whenever a change occurs.
+131;10;A;1;Make privacy policies publicly available.
+132;10;A;1;Write privacy policies in clear and comprehensible language.
+133;10;A;1;Ensure that privacy policies contain the contact information of the individuals responsible for privacy and security.
+134;10;A;1;Conduct privacy policy revision meetings.
+135;10;A;1;Analyse and incorporate the feedback on the readability and content of the privacy policy.
+136;10;A;1;Archive historical versions of privacy policies and make them accessible.
+137;10;B;2;Routinely communicate about policy.
+138;10;B;2;Make policy communication semi-automated.
+139;10;B;2;Assess the general understanding of the privacy policy of individuals to improve communication methods.
+140;10;B;2;Implement procedures that uniformly and consistently obtain consent for additional processing activities in the collection phase.
+141;10;C;5;Define privacy policies together with data subjects.
+142;10;C;5;Provide data subjects with information about policies, procedures, and controls.
+143;10;C;5;Provide data subjects with information through tools that allow them to determine how personal data is used.
+144;10;C;5;Provide data subjects with information through tools that allow them to determine whether policies are being properly enforced.
+145;10;D;7;Publish summaries of PIAs.
+146;10;D;7;Publish summaries of threat and risk assessments.
+147;10;D;7;Publish the results of independent third-party audits.
+148;11;A;2;Complete a privacy risk assessment for third parties before granting any contract where personal data is made available.
+149;11;A;2;Review existing contracts with third-parties that involve providing personal data.
+150;11;B;4;Establish documented procedures to ensure that third parties have appropriate safeguards in place prior to transferring personal data.
+151;11;B;4;Establish documented procedures to ensure that third parties apply appropriate safeguards consistently.
+152;11;B;4;Assess new instances of personal data sharing with third parties to determine authorisation, additional notice, and updates to existing agreements.
+153;11;B;4;Use exception reports to record inappropriate, unacceptable, or misuse activities by third parties.
+154;11;B;4;Use exception reports to monitor the status of remedial activities.
+155;11;C;6;Make a privacy level agreement as part of a service level agreement with third parties.
+156;11;C;6;Monitor changes in the environment of third parties to ensure the processor can continue to meet its obligations.
+157;11;C;6;Have management monitor compliance with privacy policies relating to disclosure to third parties.
+158;12;A;1;Identify and assign stakeholders, roles, and responsibilities related to privacy activities.
+159;12;B;2;Formalise the management of privacy-related roles and responsibilities in a role/functionality matrix.
+160;12;B;2;Appoint a chief privacy officer.
+161;12;C;3;Define the trust relationship between the stakeholders.
+162;12;C;3;Assign data processing responsibilities to the appropriate stakeholders, including monitoring activities.
+163;12;C;3;Assign a technical privacy officer to support operational privacy-by-design activities.
+164;12;D;5;Appoint a central entity responsible for privacy related issues (e.g., a privacy committee).
+165;13;A;1;Ensure the organisation is aware of the basic principles of privacy-by-design.
+166;13;A;1;Ensure that management is committed to applying the basic principles of privacy-by-design.
+167;13;B;2;Identify target groups involved with privacy-by-design.
+168;13;B;2;Give training to target groups involved with privacy-by-design for raising awareness and transmitting knowledge relevant to their specialisation.
+169;13;C;3;Provide resources to support consistent implementation of privacy policies, procedures, and standards (e.g., manuals, guides, handbooks).
+170;13;D;5;Ensure the organisation is participating in learning from and contributing to the available body of knowledge amassed by the privacy community.
+171;13;D;5;Ensure staff and management are comfortable identifying areas for improving privacy practices and discussing these freely and proactively.
+172;14;A;4;Put an assurance process in place to support the checking and demonstration of compliance with regulation.
+173;14;A;4;Include overseeing the execution of cybersecurity and privacy controls in the assurance process.
+174;14;A;4;Ensure that systems have functional audit logs and usage reports.
+175;14;A;4;Ensure functional audit logs and usage reports provide information without disclosing identity information.
+176;14;B;5;Log events during all processing activities.
+177;14;B;5;Use privacy-related key performance indicators to periodically track, measure, and monitor the performance of the privacy function.
+178;14;B;5;Regularly report performance to management.
+179;14;B;5;Regularly review performance metrics.
+180;14;C;6;Have management continuously monitor compliance with privacy policies, regulations, and procedures related to personal data processing.
+181;14;C;6;Continually review the approach to privacy-by-design based on internal review.
+182;14;C;6;Continually review the approach to privacy-by-design based on external development in best practice.
+183;14;D;7;Perform periodic reviews and audits on processing activities to ensure personal information uses are appropriate and lawful.
+184;14;E;8;Perform systematic and independent audit examinations of logs, procedures, processes, and hardware and software specifications.
+185;14;E;8;Ensure audit and log systems are compliant with other privacy principles.
+186;14;E;8;Track user activity through audit and log systems to identify illegal processing.
