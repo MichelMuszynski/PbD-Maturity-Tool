@@ -1,7 +1,8 @@
 # Privacy-by-design maturity assessment tool
+A proof of concept for a web-based assessment tool to support the privacy-by-design focus area maturity model.
 
-
-
+Research data can be found here: [github.com/MichelMuszynski/PbD-maturity-data](https://github.com/MichelMuszynski/PbD-maturity-data)
+For more information visit: [privacymaturity.org](http://www.privacymaturity.org).
 ---
 
 ### License
