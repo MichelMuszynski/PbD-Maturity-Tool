@@ -364,7 +364,7 @@
                         <span>You have indicated that you wish to participate in the evaluation study.</span>
                         <span>A <b><i>new tab</i></b> will be opened allowing you to consult your results while answering the evaluation questions.</span>
                         <div class="d-inline-flex">
-                          <button type="button" id="evalButton" class="btn btn-primary" onclick="openEval()" style="margin-top: 2%">Perform evaluation</button>
+                          <button type="button" id="evalButton" class="btn btn-primary" onclick="openEval()" style="margin-top: 2%">Start evaluation</button>
                         </div>
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                 <div class="d-flex align-items-center">
                     <i class="bi bi-filetype-pdf" style="font-size: 3em"></i>
                     <!--Maturity_report.pdf-->
-                    <a href="{{ url_for('download_results', fileName=uniqueID) }}" style="margin-left: 5px"><u>PbD_maturity_report.pdf</u></a>
+                    <a id="downloadLink" href="{{ url_for('download_results', fileName=uniqueID) }}" style="margin-left: 5px"><u>PbD_maturity_report.pdf</u></a>
                     <span>&nbsp({{fileSize}})</span>
                     <i class="bi bi-download" style="margin-left: 10px" aria-hidden="true"></i>
                 </div>
@@ -400,9 +400,25 @@
 <script>
 
     var uniqueID = {{uniqueID|tojson}};
+    var openedEvaluation = false;
 
     function openEval(){
         window.open(`https://www.privacymaturity.org/evaluation/${uniqueID}`, "_blank");
+        openedEvaluation = true;
+    }
+
+    // Open the evaluation screen when the report is downloaded, only when the evaluation has not been opened yet previously.
+    window.onload = function() {
+          var a = document.getElementById("downloadLink");
+
+          a.onclick = function() {
+
+            if(openedEvaluation == false)
+            {
+                window.open(`https://www.privacymaturity.org/evaluation/${uniqueID}`, "_blank");
+                openedEvaluation = true;
+            }
+          }
     }
 
 </script>
