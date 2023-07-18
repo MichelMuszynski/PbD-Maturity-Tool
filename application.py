@@ -448,7 +448,7 @@ def assessment(evaluation):
         dfResultsWithAnswers = dfResultsWithAnswers.groupby(['Focus area', 'Capability']).agg(list).reset_index()
 
         # Create maturity model object and populate/update it.
-        modelResults = createMMObject() #createMMTableFromCSV()
+        modelResults = createMMObject()
 
         for fa in modelResults.focusAreas:
             for capability in fa.capabilities:

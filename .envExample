@@ -1,0 +1,8 @@
+export USERNAME="[pythonanywhereUsername]"
+export PASSWORD="[pythonanywherePassword]"
+export HOSTNAME="[databaseHostName]"
+export DATABASENAME="[databaseName]"
+export ADMINPASS="[adminPagePassword]"
+export STATIC_PATH="/home/[pythonanywhereUsername]/mysite/static/"
+export ASSETS_PATH="/home/[pythonanywhereUsername]/mysite/static/assets/"
+export MATURITY_REPORTS_PATH="/home/[pythonanywhereUsername]/mysite/static/maturity_reports/"
