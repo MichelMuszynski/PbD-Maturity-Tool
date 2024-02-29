@@ -8,7 +8,7 @@ For more information visit: [privacymaturity.org](http://www.privacymaturity.org
 
 ### License
 
-Copyright (c) 2022-2023 Michel Muszynski
+Copyright (c) 2022-2024 Michel Muszynski
 
 This work is licensed under a
 Creative Commons Attribution 4.0 International License.
